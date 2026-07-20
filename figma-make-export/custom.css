@@ -1,0 +1,9 @@
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure smooth scroll behavior on anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
