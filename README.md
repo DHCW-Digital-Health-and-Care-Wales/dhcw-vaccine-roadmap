@@ -1,11 +1,11 @@
-# Primary, Community and Mental Health: our roadmap
+# DHCW Vaccine Service roadmap
 
-A public, accessible roadmap for the Primary, Community and Mental Health (PCMH)
-Directorate at [Digital Health and Care Wales (DHCW)](https://dhcw.nhs.wales/).
-It shows what we are working on across primary, community and mental health care
-in Wales, and where we are heading.
+A public, accessible roadmap for the Vaccine Service at
+[Digital Health and Care Wales (DHCW)](https://dhcw.nhs.wales/). It shows what
+we are working on now, what we expect to do next, and the direction we are
+setting for later.
 
-**Live site:** https://dhcw-digital-health-and-care-wales.github.io/PCMH-Roadmap/
+**Live site:** https://dhcw-digital-health-and-care-wales.github.io/dhcw-vaccine-roadmap/
 
 > **Draft for discussion.** This roadmap shows direction and priorities, not
 > firm commitments. It carries no dates. Now is the firmest; Later is the most
@@ -13,21 +13,17 @@ in Wales, and where we are heading.
 
 ## Who it is for
 
-Anyone with an interest in digital primary, community and mental health care in
-Wales: the people who use these services, the teams who deliver them, partners
-and suppliers.
+Anyone with an interest in vaccination services in Wales: the people who use
+these services, the teams who deliver them, and partners working with the
+service.
 
 ## How it is structured
 
-The roadmap has two axes:
+The roadmap is organised into three horizons:
 
-- **Six outcome categories** (the themes): Access and Inclusion; Workforce and
-  Capability; Digital Economy and Sustainability; Safety and Resilience; Data
-  and Collaboration; Equity and Innovation.
-- **Three horizons** within each category:
-  - **Now** is work we are actively doing. It is well understood and underway.
-  - **Next** is what we expect to pick up. It is direction, and it may change.
-  - **Later** is the direction we are setting. It is deliberately high level.
+- **Now** is work we are actively doing.
+- **Next** is what we expect to pick up soon.
+- **Later** is the direction we are setting.
 
 The further out the work, the more it may change. We do not put dates on the
 roadmap, and Next and Later are not commitments to deliver by a particular time.
@@ -35,7 +31,7 @@ roadmap, and Next and Later are not commitments to deliver by a particular time.
 ## Giving feedback
 
 This is built in the open and feedback is welcome. Please
-[open a roadmap feedback issue](https://github.com/DHCW-Digital-Health-and-Care-Wales/PCMH-Roadmap/issues/new?template=roadmap-feedback.md).
+[open a roadmap feedback issue](https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-vaccine-roadmap/issues/new?template=roadmap-feedback.md).
 
 ## How often it is updated
 
@@ -51,19 +47,19 @@ where a Welsh string is not yet provided the site falls back to English. The
 default language can be switched in one place (`DEFAULT_LANGUAGE` in
 `src/lib/i18n.ts`).
 
+## Editing the roadmap content
+
+All content lives in [`src/data/roadmap.ts`](./src/data/roadmap.ts). Updating the
+roadmap is a content edit there, not a code change. Each item has a title,
+summary, horizon and status. Add Welsh by filling in the `cy` field next to each
+`en` field.
+
 ## Accessibility and privacy
 
 - We aim to meet WCAG 2.2 AA. See the accessibility statement on the site.
 - The site sets no tracking cookies, uses no third-party analytics and
   self-hosts its fonts, so there is nothing to consent to. See the privacy note
   on the site.
-
-## Editing the roadmap content
-
-All content lives in [`src/data/roadmap.ts`](./src/data/roadmap.ts). Updating the
-roadmap is a content edit there, not a code change. Each item has a title,
-summary, category, horizon and status. Add Welsh by filling in the `cy` field
-next to each `en` field.
 
 ## Running and building locally
 
@@ -82,9 +78,8 @@ npm run format   # format with Prettier
 
 The site deploys to GitHub Pages from `main` via the workflow in
 [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml). The Vite base
-path is relative (`./`) so assets resolve whether Pages serves the site from the
-root of a private `*.pages.github.io` subdomain (while the repo is private) or
-from `/PCMH-Roadmap/` as a public project page.
+path is set to `/dhcw-vaccine-roadmap/` so assets resolve correctly for this
+GitHub Pages project site.
 
 > **Repository setting required:** in **Settings -> Pages**, set the source to
 > **GitHub Actions** for deployments to run.

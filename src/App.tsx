@@ -9,11 +9,7 @@ import { RoadmapFooter } from './components/RoadmapFooter';
 import { BackToTop } from './components/BackToTop';
 import { useLanguage } from './lib/i18n';
 
-/**
- * The roadmap page. All content is read from src/data/roadmap.ts; nothing is
- * hard-coded here. Layout follows the Figma Make design, reconciled to the
- * brief's Now/Next/Later structure across six outcome categories.
- */
+/** The roadmap page. All content is read from src/data/roadmap.ts. */
 export default function App() {
   const { lang } = useLanguage();
   const cy = lang === 'cy';
@@ -34,7 +30,7 @@ export default function App() {
         <div id="roadmap" className="scroll-mt-28 bg-surface px-4 py-8 sm:px-6">
           <div className="mx-auto max-w-content">
             <h2 className="sr-only">
-              {cy ? 'Y trywydd yn ôl canlyniad' : 'The roadmap by outcome'}
+              {cy ? 'Y trywydd yn ôl gorwel' : 'The roadmap by horizon'}
             </h2>
             {roadmap.categories.map((category) => (
               <CategorySection

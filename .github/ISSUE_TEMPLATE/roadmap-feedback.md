@@ -1,6 +1,6 @@
 ---
 name: Roadmap feedback
-about: Share feedback on the Primary, Community and Mental Health roadmap
+about: Share feedback on the Vaccine Service roadmap
 title: 'Feedback: '
 labels: ['roadmap-feedback']
 ---
@@ -10,8 +10,8 @@ so all feedback is welcome.
 
 ## What is your feedback about?
 
-Tell us which part of the roadmap this relates to, for example a category
-(such as Access and Inclusion) or a horizon (Now, Next or Later).
+Tell us which part of the roadmap this relates to, for example a horizon (Now,
+Next or Later) or a specific roadmap item.
 
 ## Your feedback
 

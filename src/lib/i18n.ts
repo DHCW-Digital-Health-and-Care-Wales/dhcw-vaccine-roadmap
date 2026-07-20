@@ -1,5 +1,5 @@
 /**
- * Bilingual helpers (docs/BUILD_BRIEF.md Section 8).
+ * Bilingual helpers.
  *
  * The content model is language-keyed. English is the working default for this
  * pass. Welsh is treated no less favourably structurally: every string has a
@@ -14,8 +14,7 @@ export type Lang = 'cy' | 'en';
 
 /**
  * The default interface language. English for now so content can be reviewed
- * quickly. To make the site Welsh-first later, flip this single value to 'cy'
- * (docs/BUILD_BRIEF.md Section 8).
+ * quickly. To make the site Welsh-first later, flip this single value to 'cy'.
  */
 export const DEFAULT_LANGUAGE: Lang = 'en';
 
@@ -23,9 +22,8 @@ export const DEFAULT_LANGUAGE: Lang = 'en';
 export const LANG_PARAM = 'lang';
 
 /** Same-site storage key for remembering the choice without cookies. */
-export const LANG_STORAGE_KEY = 'pcmh-roadmap-lang';
+export const LANG_STORAGE_KEY = 'dhcw-vaccine-roadmap-lang';
 
-// In development only, record Localised values that are missing a Welsh string.
 const missingWelsh = new Set<string>();
 
 /**
@@ -38,7 +36,6 @@ export function t(value: Localised, lang: Lang): string {
     return requested;
   }
 
-  // Track and warn about missing Welsh in development only.
   if (lang === 'cy' && import.meta.env.DEV) {
     const english = value.en;
     if (english && !missingWelsh.has(english)) {
@@ -60,7 +57,6 @@ export function getMissingWelsh(): string[] {
 export interface LanguageContextValue {
   lang: Lang;
   setLang: (lang: Lang) => void;
-  /** Translate a language-keyed value into the active language. */
   tr: (value: Localised) => string;
 }
 
