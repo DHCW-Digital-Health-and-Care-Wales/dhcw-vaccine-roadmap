@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand tokens are also exposed as CSS variables so non-Tailwind code can
+     reference them in one place (docs/BUILD_BRIEF.md Section 3). */
+  --color-navy: #1b294a;
+  --color-dhcw-blue: #12a3c9;
+  --color-nhs-wales-blue: #325083;
+  --color-yellow: #f8ca4d;
+  --color-heading: #1b365d;
+  --color-action: #005aa8;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-ink-900 font-sans antialiased;
+  }
+
+  /* Visible focus styles on every interactive element
+     (docs/BUILD_BRIEF.md Section 7). A high-contrast yellow ring works on both
+     the dark header and light page backgrounds. */
+  :focus-visible {
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Smooth in-page scrolling, disabled under reduced-motion below. */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Skip-to-content link: visually hidden until focused (Section 7). */
+  .skip-link {
+    @apply absolute left-4 top-4 z-[100] -translate-y-24 rounded bg-heading px-4 py-2 text-surface transition-transform;
+  }
+  .skip-link:focus {
+    @apply translate-y-0;
+  }
+}
+
+/* Keep motion minimal and never essential (docs/BUILD_BRIEF.md Section 7). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
