@@ -78,8 +78,9 @@ npm run format   # format with Prettier
 
 The site deploys to GitHub Pages from `main` via the workflow in
 [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml). The Vite base
-path is set to `/dhcw-vaccine-roadmap/` so assets resolve correctly for this
-GitHub Pages project site.
+path is set to `./` (relative), so built asset URLs resolve relative to
+`index.html` wherever the site is served — both the GitHub Pages project site
+(`…github.io/dhcw-vaccine-roadmap/`) and any other host or fork root.
 
 > **Repository setting required:** in **Settings -> Pages**, set the source to
 > **GitHub Actions** for deployments to run.

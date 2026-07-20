@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="DHCW Vaccine roadmap">
+  <rect width="32" height="32" rx="6" fill="#0069b4" />
+  <path d="M16 6l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10v-6l7-4z" fill="#ffffff" />
+  <path d="M13.7 16.2l1.8 1.9 3.4-4.1" fill="none" stroke="#0069b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
