@@ -2,13 +2,12 @@ import logoImage from '../assets/dhcw-logo.png';
 import { useLanguage } from '../lib/i18n';
 
 const REPO_URL =
-  'https://github.com/DHCW-Digital-Health-and-Care-Wales/PCMH-Roadmap';
+  'https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-vaccine-roadmap';
 const FEEDBACK_URL = `${REPO_URL}/issues/new?template=roadmap-feedback.md`;
 
 /**
- * Footer (docs/BUILD_BRIEF.md Sections 4 and 9): feedback route, links to the
- * accessibility statement and privacy note, the licence and a link back to the
- * GitHub repository.
+ * Footer: feedback route, links to the accessibility statement and privacy
+ * note, the licence and a link back to the GitHub repository.
  */
 export function RoadmapFooter() {
   const { lang } = useLanguage();

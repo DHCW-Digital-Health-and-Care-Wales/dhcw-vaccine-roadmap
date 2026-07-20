@@ -1,9 +1,9 @@
 {
-  "name": "pcmh-roadmap",
+  "name": "dhcw-vaccine-roadmap",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Public roadmap for the Primary, Community and Mental Health Directorate at Digital Health and Care Wales.",
+  "description": "Public roadmap for the Vaccine Service at Digital Health and Care Wales.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
