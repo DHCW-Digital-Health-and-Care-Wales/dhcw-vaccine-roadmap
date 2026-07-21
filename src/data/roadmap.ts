@@ -35,8 +35,42 @@ export interface RoadmapItem {
   updated: string;
 }
 
+/**
+ * A single item in a delivered work section.
+ * Items are populated by Joshua from real delivery records only.
+ */
+export interface DeliveredItem {
+  id: string;
+  title: Localised;
+  summary: Localised;
+}
+
+/**
+ * A delivered work section (Recently delivered / Other work this year).
+ * Items must come from a real delivery source. Leave items empty and
+ * use the placeholder text until Joshua confirms the content.
+ */
+export interface DeliveredSectionData {
+  id: string;
+  heading: Localised;
+  description: Localised;
+  /** Visible on-page placeholder shown when items is empty. */
+  placeholder: Localised;
+  items: DeliveredItem[];
+}
+
 export interface RoadmapMeta {
   title: Localised;
+  /**
+   * Agreed verbatim wording — do not edit.
+   * Stored here so it is language-keyed alongside all other copy.
+   */
+  vision: Localised;
+  /**
+   * Agreed verbatim wording — do not edit.
+   * Stored here so it is language-keyed alongside all other copy.
+   */
+  serviceDescription: Localised;
   intro: Localised;
   horizonNote: Localised;
   owner: string;
@@ -50,6 +84,16 @@ export interface Roadmap {
   horizons: { id: Horizon; label: Localised; definition: Localised }[];
   categories: Category[];
   items: RoadmapItem[];
+  /**
+   * NEEDS JOSHUA'S INPUT — no reliable delivered-work source exists in the
+   * repo (no shipped items, no changelog, no closed milestones). Scaffold only.
+   * Do not populate with invented items.
+   */
+  recentlyDelivered: DeliveredSectionData;
+  /**
+   * NEEDS JOSHUA'S INPUT — same evidence rule as recentlyDelivered above.
+   */
+  otherDelivered: DeliveredSectionData;
 }
 
 const TODO_CY = '';
@@ -61,11 +105,25 @@ const localised = (en: string): Localised => ({ cy: TODO_CY, en });
 export const roadmap: Roadmap = {
   meta: {
     title: localised('DHCW Vaccine Service roadmap'),
-    intro: localised(
-      'This roadmap shows what the Vaccine Service at Digital Health and Care Wales is working on now, what is coming next, and the direction we expect to take later.',
+
+    // Agreed verbatim wording — do not edit.
+    vision: localised(
+      'To provide one national digital service, from stock to surveillance. Finding, protecting, remembering, and learning, so that vaccination in Wales stays prudent, equitable, and evidence-led for every person and every dose.',
     ),
+
+    // Agreed verbatim wording — do not edit.
+    serviceDescription: localised(
+      'We help Wales to deliver efficient, data-driven vaccination services by providing a near real-time, user-centred immunisation service that streamlines data management, enhances citizen access, and supports informed decision-making.',
+    ),
+
+    // Task 5: removed Oxford comma before "and the direction"; applied natural
+    // contractions ("we're", "what's").
+    intro: localised(
+      "This roadmap shows what we're working on now, what's coming next and the direction we expect to take later.",
+    ),
+    // Task 5: applied natural contractions ("don't", "aren't").
     horizonNote: localised(
-      'Now is what we are actively working on. Next is what we expect to pick up soon. Later is the direction we are setting as we learn more with users, families and partners. We do not put dates on roadmap items, and Next and Later are not firm delivery commitments.',
+      "Now is what we are actively working on. Next is what we expect to pick up soon. Later is the direction we're setting as we learn more with users, families and partners. We don't put dates on roadmap items, and Next and Later aren't firm delivery commitments.",
     ),
     owner: 'Vaccine Service, Digital Health and Care Wales',
     lastUpdated: UPDATED_AT,
@@ -104,8 +162,9 @@ export const roadmap: Roadmap = {
       id: CATEGORY_ID,
       name: localised('Vaccine Service'),
       headline: localised('Now, Next and Later for the Vaccine Service'),
+      // Task 5: applied natural contraction ("we're working on").
       description: localised(
-        'This roadmap is a simple view of the work shaping vaccination services in Wales. Each card shows a change we are working on now, preparing to take on next, or planning for later.',
+        "This roadmap is a simple view of the work shaping vaccination services in Wales. Each card shows a change we're working on now, planning to take on next, or working towards later.",
       ),
       accent: '#325083',
     },
@@ -159,8 +218,9 @@ export const roadmap: Roadmap = {
     {
       id: 'getting-ready-for-winter',
       title: localised('Getting ready for winter'),
+      // Task 5: removed Oxford comma from "Flu, COVID, and RSV" list.
       summary: localised(
-        "Flu, COVID, and RSV vaccinations happen every winter across Wales. We're agreeing what needs to change in the system with Public Health Wales and the seven health boards.",
+        "Flu, COVID and RSV vaccinations happen every winter across Wales. We're agreeing what needs to change in the system with Public Health Wales and the seven health boards.",
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
@@ -204,7 +264,7 @@ export const roadmap: Roadmap = {
       id: 'small-number-of-schools-try-the-new-system',
       title: localised('A small number of schools try the new system'),
       summary: localised(
-        "We move from testing designs to using the service for real, in a small number of schools. We watch closely, learn every week, and change things as we go.",
+        'We move from testing designs to using the service for real, in a small number of schools. We watch closely, learn every week, and change things as we go.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
@@ -269,8 +329,9 @@ export const roadmap: Roadmap = {
     {
       id: 'winter-vaccinations-across-wales',
       title: localised('Winter vaccinations across Wales'),
+      // Task 5: removed Oxford comma from "Flu, COVID, and RSV" list.
       summary: localised(
-        'Flu, COVID, and RSV vaccinations start across all seven health boards. This is the busiest time of the year for the system.',
+        'Flu, COVID and RSV vaccinations start across all seven health boards. This is the busiest time of the year for the system.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
@@ -335,8 +396,11 @@ export const roadmap: Roadmap = {
     {
       id: 'getting-ready-for-the-full-move-to-the-cloud',
       title: localised('Getting ready for the full move to the cloud'),
+      // Task 5: removed the specific future date "March 2027" in line with the
+      // roadmap principle of no dates on future items. Reframed to use horizon
+      // language instead. PR flags this for Joshua to confirm the reframing.
       summary: localised(
-        'We prepare the new home for the system before the full migration in March 2027.',
+        "We're preparing the new home for the system ahead of the full migration to the cloud.",
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
@@ -355,4 +419,34 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
   ],
+
+  // NEEDS JOSHUA'S INPUT.
+  // There is no reliable source of delivered work in this repo: no items are
+  // marked 'shipped', there is no changelog and there are no closed milestones.
+  // Scaffold only. Do not add items without a real delivery source.
+  recentlyDelivered: {
+    id: 'recently-delivered',
+    heading: localised('Recently delivered'),
+    description: localised(
+      "Work we've completed recently and that is now live in the service.",
+    ),
+    placeholder: localised(
+      'Content to be confirmed. This section will list recently delivered work once reviewed and agreed with the service team.',
+    ),
+    items: [],
+  },
+
+  // NEEDS JOSHUA'S INPUT.
+  // Same evidence rule: no items without a real delivery source.
+  otherDelivered: {
+    id: 'other-delivered',
+    heading: localised('Other work we have delivered this year'),
+    description: localised(
+      'A broader view of the delivery this year that sits outside the main roadmap horizons.',
+    ),
+    placeholder: localised(
+      'Content to be confirmed. This section will capture wider delivery this year once reviewed and agreed with the service team.',
+    ),
+    items: [],
+  },
 };
