@@ -1,15 +1,26 @@
 import type { DeliveredSectionData } from '../data/roadmap';
 import { useLanguage } from '../lib/i18n';
 
+function renderSummaryWithMetric(summary: string, metric?: string) {
+  if (!metric || !summary.includes(metric)) {
+    return summary;
+  }
+
+  const [before, after] = summary.split(metric, 2);
+  return (
+    <>
+      {before}
+      <strong className="rounded bg-heading/10 px-1 font-semibold text-heading">
+        {metric}
+      </strong>
+      {after}
+    </>
+  );
+}
+
 /**
  * A delivered work section, used for both "Recently delivered" and
  * "Other work we have delivered this year".
- *
- * NEEDS JOSHUA'S INPUT: Both instances of this component currently show a
- * placeholder because there is no reliable delivered-work source in the repo
- * (no shipped items, no changelog, no closed milestones). Add items to the
- * relevant section in src/data/roadmap.ts once content has been reviewed and
- * agreed.
  *
  * Matches the card pattern and tokens used in the existing horizon sections.
  */
@@ -27,9 +38,14 @@ export function DeliveredSection({
       className="border-b border-border bg-surface px-4 py-12 sm:px-6"
     >
       <div className="mx-auto max-w-content">
-        <h2 id={headingId} className="text-2xl font-bold text-heading">
-          {tr(section.heading)}
-        </h2>
+        <div className="flex items-center gap-2">
+          <h2 id={headingId} className="text-2xl font-bold text-heading">
+            {tr(section.heading)}
+          </h2>
+          <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full border border-border bg-surface-subtle px-2 text-xs font-semibold text-ink-700">
+            {section.items.length}
+          </span>
+        </div>
 
         <p className="mt-4 max-w-3xl leading-relaxed text-ink-900">
           {tr(section.description)}
@@ -44,8 +60,20 @@ export function DeliveredSection({
               >
                 <h3 className="font-bold text-heading">{tr(item.title)}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-900">
-                  {tr(item.summary)}
+                  {renderSummaryWithMetric(tr(item.summary), item.metric)}
                 </p>
+                {item.capabilities ? (
+                  <details className="mt-3 rounded-card border border-border bg-surface-subtle p-3">
+                    <summary className="cursor-pointer text-sm font-semibold text-heading">
+                      {item.capabilities.label}
+                    </summary>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-900">
+                      {item.capabilities.items.map((capability) => (
+                        <li key={capability}>{capability}</li>
+                      ))}
+                    </ul>
+                  </details>
+                ) : null}
               </article>
             ))}
           </div>
