@@ -31,6 +31,11 @@ export interface RoadmapItem {
   categoryId: string;
   horizon: Horizon;
   status: ItemStatus;
+  phase?: string;
+  phaseKind?: 'discovery';
+  outcome?: string;
+  metric?: string;
+  capabilities?: { label: string; items: string[] };
   services?: string[];
   updated: string;
 }
@@ -43,6 +48,8 @@ export interface DeliveredItem {
   id: string;
   title: Localised;
   summary: Localised;
+  metric?: string;
+  capabilities?: { label: string; items: string[] };
 }
 
 /**
@@ -84,20 +91,12 @@ export interface Roadmap {
   horizons: { id: Horizon; label: Localised; definition: Localised }[];
   categories: Category[];
   items: RoadmapItem[];
-  /**
-   * NEEDS JOSHUA'S INPUT — no reliable delivered-work source exists in the
-   * repo (no shipped items, no changelog, no closed milestones). Scaffold only.
-   * Do not populate with invented items.
-   */
   recentlyDelivered: DeliveredSectionData;
-  /**
-   * NEEDS JOSHUA'S INPUT — same evidence rule as recentlyDelivered above.
-   */
   otherDelivered: DeliveredSectionData;
 }
 
 const TODO_CY = '';
-const UPDATED_AT = '2026-07-20';
+const UPDATED_AT = '2026-08-02';
 const CATEGORY_ID = 'vaccine-service';
 
 const localised = (en: string): Localised => ({ cy: TODO_CY, en });
@@ -172,258 +171,350 @@ export const roadmap: Roadmap = {
 
   items: [
     {
-      id: 'menb-response-in-schools',
-      title: localised('Getting ready for the MenB response in schools'),
+      id: 'winter-respiratory-campaign',
+      title: localised('Winter respiratory campaign'),
       summary: localised(
-        "We're updating the Welsh Immunisation System so nurses can record MenB vaccinations in schools. It uses the same system they already use for flu and HPV, so there's less to learn.",
+        'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign, and the COVID-19 autumn campaign.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      outcome:
+        'WIS is ready to record flu, COVID-19 and RSV vaccinations across every health board through the winter season.',
       updated: UPDATED_AT,
     },
     {
-      id: 'digital-consent-with-families',
-      title: localised('Testing digital consent with families'),
+      id: 'system-generated-appointments-sga',
+      title: localised('System Generated Appointments (SGA)'),
       summary: localised(
-        "We're trying out a new way for parents and young people to give consent for school vaccinations online. Right now, families fill in paper forms. Digital consent should be faster and clearer. We're testing it with real families first, and we're being careful to design it so young people can give consent for themselves where that's the right thing to do.",
+        'Piloting System Generated Appointments and appointment mapping, with training and support.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      outcome:
+        'NHS staff can schedule appointments with more automation and less reliance on DHCW support teams.',
       updated: UPDATED_AT,
     },
     {
-      id: 'learning-what-school-nurses-need',
-      title: localised('Learning what school nurses need'),
+      id: 'letter-updates',
+      title: localised('Letter updates'),
       summary: localised(
-        "We're sitting with school nurses to understand how they work. We show them early designs and change things based on what they say. This happens before we build much of anything.",
+        "Updating the existing WIS letter templates for this year's autumn campaigns.",
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      outcome:
+        'Existing letters are accurate and up to date for the autumn campaigns.',
       updated: UPDATED_AT,
     },
     {
-      id: 'building-the-next-two-updates',
-      title: localised('Building the next two updates'),
+      id: 'school-immunisation-service',
+      title: localised('School immunisation service'),
       summary: localised(
-        "Every few weeks we release updates to the system based on what users have asked for. We're finalising what goes into the next two releases and building them now.",
+        'Early build and testing of the school immunisation service.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      phase: 'Alpha',
+      outcome:
+        'Tested prototypes for running school vaccination sessions digitally, ready to build on.',
       updated: UPDATED_AT,
     },
     {
-      id: 'getting-ready-for-winter',
-      title: localised('Getting ready for winter'),
-      // Task 5: removed Oxford comma from "Flu, COVID, and RSV" list.
+      id: 'electronic-consent',
+      title: localised('Electronic consent'),
       summary: localised(
-        "Flu, COVID and RSV vaccinations happen every winter across Wales. We're agreeing what needs to change in the system with Public Health Wales and the seven health boards.",
+        'Early build and testing of electronic consent for vaccination.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      phase: 'Alpha',
+      outcome:
+        'A tested way for parents and guardians to give consent online, with less reliance on paper forms.',
       updated: UPDATED_AT,
     },
     {
-      id: 'migrating-the-database-stack',
-      title: localised('Migrating the database stack'),
+      id: 'registrant-consent-recording',
+      title: localised('Registrant Consent Recording'),
       summary: localised(
-        'The system that holds vaccination records is moving to a new database. Migration work reaches code complete, then enters regression testing. This proves the new stack keeps every existing feature working before any live service moves.',
+        'Recording registrant consent at the point of vaccination, keeping WIS up to date with regulatory change.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      outcome:
+        'The service stays in line with current requirements for recording consent.',
       updated: UPDATED_AT,
     },
     {
-      id: 'replacing-older-servers',
-      title: localised('Replacing older servers'),
+      id: 'clearer-vaccination-warnings',
+      title: localised('Clearer vaccination warnings'),
       summary: localised(
-        "We're replacing servers that are no longer supported. Users won't notice, but the service stays stable and secure.",
+        "Clearer warnings when a vaccination looks like a duplicate, or when the person isn't in a priority group.",
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
+      outcome: 'Staff can catch possible recording errors before they happen.',
       updated: UPDATED_AT,
     },
     {
-      id: 'menb-goes-live',
-      title: localised('MenB goes live'),
+      id: 'new-stock-management-designs',
+      title: localised('New stock management designs'),
       summary: localised(
-        "Nurses start recording MenB vaccinations in schools. We'll be with teams during the first sessions to fix anything that isn't right.",
+        'Prototyping new designs for managing vaccine stock, tested with the people who use them.',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      outcome:
+        'Updated designs that reflect user feedback and bring the look and feel into line with the rest of the product.',
+      updated: UPDATED_AT,
+    },
+    {
+      id: 'user-management-for-organisations',
+      title: localised('User management for organisations'),
+      summary: localised(
+        'Enhancing user management in WIS so organisations can add and manage their own users.',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      outcome:
+        'Organisations set up their own staff more quickly, with less reliance on central administration.',
+      updated: UPDATED_AT,
+    },
+    {
+      id: 'more-frequent-gp-write-back',
+      title: localised('More frequent GP write-back'),
+      summary: localised(
+        'Investigating whether we can send vaccination updates back to GP records more often, working with IUVO and EMIS.',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'exploring',
+      phase: 'Discovery',
+      phaseKind: 'discovery',
+      outcome:
+        'A clear view of whether more frequent updates are feasible, and what it would take to deliver them.',
+      updated: UPDATED_AT,
+    },
+    {
+      id: 'storage-area-network-san',
+      title: localised('Storage Area Network (SAN)'),
+      summary: localised(
+        'Essential infrastructure work on the Storage Area Network.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      outcome:
+        'Essential maintenance keeps the storage behind WIS running reliably.',
       updated: UPDATED_AT,
     },
     {
-      id: 'small-number-of-schools-try-the-new-system',
-      title: localised('A small number of schools try the new system'),
+      id: 'school-immunisation-recording-and-stock',
+      title: localised('School immunisation: recording and stock'),
       summary: localised(
-        'We move from testing designs to using the service for real, in a small number of schools. We watch closely, learn every week, and change things as we go.',
+        'Recording and managing HPV, MenACWY and Teenage Booster (3-in-1) through consent forms, with writeback to CYPrIS and GP systems, and updates to the data warehouse. Writeback to GP systems is being extended to EMIS, covering flu alongside the 3-in-1 booster and MenACWY.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      phase: 'Beta · Phase 1',
+      services: ['CYPrIS', 'GP systems', 'Data warehouse'],
+      capabilities: {
+        label: 'What this phase covers',
+        items: [
+          'Record HPV, MenACWY and Teenage Booster (3-in-1) vaccinations through consent forms.',
+          'Configure and maintain vaccination defaults for these vaccines.',
+          'Manage the full vaccine stock lifecycle for these vaccines.',
+          'Identify children who need vaccination and are eligible for catch-up clinics.',
+          'Support the batch recording of vaccination outcomes.',
+          'Writeback to CYPrIS and to GP systems.',
+          'Extended writeback to EMIS, covering flu, the 3-in-1 booster and MenACWY.',
+          'Update the data warehouse.',
+          'Advanced Patient Search available for the new vaccines.',
+        ],
+      },
+      outcome:
+        'School-age vaccinations for HPV, MenACWY and the 3-in-1 booster are recorded in WIS and flow through to GP records and reporting.',
       updated: UPDATED_AT,
     },
     {
-      id: 'second-update-goes-out-with-training',
-      title: localised('The second update goes out with training'),
+      id: 'new-one-page-letters',
+      title: localised('New one-page letters'),
       summary: localised(
-        'Nurses get the training they need before winter starts. This gives them time to get comfortable with the changes.',
+        'Releasing new, shorter, citizen-tested letter templates that replace the current ones.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      outcome:
+        'Improved written communication, and cost savings from reducing letter length.',
       updated: UPDATED_AT,
     },
     {
-      id: 'first-real-training-at-a-pilot-site',
-      title: localised('First real training at a pilot site'),
+      id: 'improved-error-messages',
+      title: localised('Improved error messages'),
       summary: localised(
-        'The first group of school nurses use the new way of working. What we learn here shapes how we roll it out to everyone else.',
+        'Further improvements to the error messages people see in WIS, so problems are easier to understand and put right.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      outcome:
+        'Users spend less time working out what went wrong and know how to get help faster.',
       updated: UPDATED_AT,
     },
     {
-      id: 'more-families-try-digital-consent',
-      title: localised('More families try digital consent'),
+      id: 'managing-not-in-wales-records',
+      title: localised('Managing “not in Wales” records'),
       summary: localised(
-        'We keep testing digital consent. More families, more schools, more evidence about what works.',
+        'Building on the recently defined requirements, developing how WIS manages records for people who have moved away from Wales.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      outcome:
+        'Better data quality, with records kept up to date when people move away.',
       updated: UPDATED_AT,
     },
     {
-      id: 'refreshing-the-storage',
-      title: localised('Refreshing the storage'),
+      id: 'continuous-improvement',
+      title: localised('Continuous improvement'),
       summary: localised(
-        'Behind the scenes, we refresh some of the storage that keeps the service running.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'next',
-      status: 'exploring',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'planning-the-following-release',
-      title: localised('Planning the following release'),
-      summary: localised(
-        'We give ourselves time to plan the next set of changes properly, rather than rushing.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'next',
-      status: 'exploring',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'winter-vaccinations-across-wales',
-      title: localised('Winter vaccinations across Wales'),
-      // Task 5: removed Oxford comma from "Flu, COVID, and RSV" list.
-      summary: localised(
-        'Flu, COVID and RSV vaccinations start across all seven health boards. This is the busiest time of the year for the system.',
+        'Improvements to WIS identified through the winter campaign.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      outcome:
+        'WIS keeps improving based on what we learn from the winter campaign.',
       updated: UPDATED_AT,
     },
     {
-      id: 'school-vaccinations-become-part-of-the-main-system',
-      title: localised('School vaccinations become part of the main system'),
+      id: 'spring-campaign',
+      title: localised('Spring campaign'),
       summary: localised(
-        'We bring school vaccinations into the same platform as adult and childhood ones. One record for each person. One way of working for nurses.',
+        'Getting WIS ready for the spring campaign.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      outcome: 'WIS is ready for the spring vaccination campaign.',
       updated: UPDATED_AT,
     },
     {
-      id: 'childrens-health-system-continues-to-join-up',
-      title: localised("Children's health system continues to join up"),
+      id: 'school-immunisation-a-home-in-wis',
+      title: localised('School immunisation: a home in WIS'),
       summary: localised(
-        "CYPrIS is the system that holds children's health information. We keep bringing it together with the Welsh Immunisation System, so every child in Wales has one clear digital record.",
+        'Making school immunisation a permanent part of WIS, so school vaccination teams use the same core service as other vaccination programmes.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      phase: 'Beta · Phase 2',
+      capabilities: {
+        label: 'What this phase covers',
+        items: [
+          'Bring school vaccination workflows into the core WIS service.',
+          'Use one person record across school and non-school vaccination pathways.',
+          'Align school vaccination reporting with the wider WIS reporting model.',
+          'Support consistent ways of working for school vaccination teams across Wales.',
+        ],
+      },
+      outcome:
+        'School immunisation is a permanent part of WIS, giving one record and one way of working for school vaccinations.',
       updated: UPDATED_AT,
     },
     {
-      id: 'wider-training-for-school-nurses',
-      title: localised('Wider training for school nurses'),
+      id: 'school-immunisation-electronic-consent',
+      title: localised('School immunisation: electronic consent'),
       summary: localised(
-        'We take what we learned at the pilot site and train nurses across Wales.',
+        'Developing electronic consent for school vaccinations, so consent can be collected and managed digitally.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      phase: 'Beta · Phase 3',
+      capabilities: {
+        label: 'What this phase covers',
+        items: [
+          'Let parents and guardians complete school vaccination consent online.',
+          'Present consent information in a clear format for school vaccination teams.',
+          'Support consent responses and updates before school sessions take place.',
+          'Reduce paper handling across school vaccination consent processes.',
+        ],
+      },
+      outcome:
+        'Parents and guardians can give consent online for school vaccinations, with fewer paper forms and faster responses.',
       updated: UPDATED_AT,
     },
     {
-      id: 'pre-school-vaccinations',
-      title: localised('Pre-school vaccinations'),
+      id: 'live-cloud-and-postgresql-migration',
+      title: localised('Live cloud and PostgreSQL migration'),
       summary: localised(
-        "We're talking with clinical and policy colleagues about how pre-school vaccinations fit into the system. More on this when we've agreed the shape.",
+        'Moving WIS onto cloud hosting and a PostgreSQL database.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      outcome:
+        'WIS runs on modern cloud hosting, making it more reliable and easier to improve and scale in response to demand.',
       updated: UPDATED_AT,
     },
     {
-      id: 'connecting-with-the-nhs-wales-app',
-      title: localised('Connecting with the NHS Wales App'),
+      id: 'cypris-maintenance-and-security',
+      title: localised('CYPrIS maintenance and security'),
       summary: localised(
-        'We start the conversation about how vaccination records reach people through the NHS Wales App. This means checking your own vaccination history on your phone.',
+        'Essential maintenance and security upgrades to CYPrIS, the child health platform that works alongside WIS.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      services: ['CYPrIS'],
+      outcome:
+        'CYPrIS stays secure and reliable while we focus new development on WIS.',
       updated: UPDATED_AT,
     },
     {
-      id: 'getting-ready-for-the-full-move-to-the-cloud',
-      title: localised('Getting ready for the full move to the cloud'),
-      // Task 5: removed the specific future date "March 2027" in line with the
-      // roadmap principle of no dates on future items. Reframed to use horizon
-      // language instead. PR flags this for Joshua to confirm the reframing.
+      id: 'pre-school-immunisation',
+      title: localised('Pre-school immunisation'),
       summary: localised(
-        "We're preparing the new home for the system ahead of the full migration to the cloud.",
+        'Discovery into pre-school immunisation.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      phase: 'Discovery',
+      phaseKind: 'discovery',
+      outcome:
+        'A clear understanding of how WIS could support pre-school vaccination.',
       updated: UPDATED_AT,
     },
     {
-      id: 'digital-consent-keeps-growing',
-      title: localised('Digital consent keeps growing'),
+      id: 'nhs-wales-app-vaccine-features',
+      title: localised('NHS Wales App vaccine features'),
       summary: localised(
-        'We keep testing and improving digital consent until the evidence tells us it is ready for the next stage.',
+        'Possible discovery into vaccine features in the NHS Wales App, subject to prioritisation.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'later',
       status: 'exploring',
+      phase: 'Discovery',
+      phaseKind: 'discovery',
+      services: ['NHS Wales App'],
+      outcome:
+        "People can see their vaccination record and what they're due in the NHS Wales App.",
       updated: UPDATED_AT,
     },
   ],
 
-  // NEEDS JOSHUA'S INPUT.
-  // There is no reliable source of delivered work in this repo: no items are
-  // marked 'shipped', there is no changelog and there are no closed milestones.
-  // Scaffold only. Do not add items without a real delivery source.
   recentlyDelivered: {
     id: 'recently-delivered',
     heading: localised('Recently delivered'),
@@ -433,7 +524,62 @@ export const roadmap: Roadmap = {
     placeholder: localised(
       'Content to be confirmed. This section will list recently delivered work once reviewed and agreed with the service team.',
     ),
-    items: [],
+    items: [
+      {
+        id: 'cloud-work-code-complete',
+        title: localised('Cloud work code complete'),
+        summary: localised(
+          'Development is finished. More follows once the cloud infrastructure becomes available.',
+        ),
+      },
+      {
+        id: 'cloud-and-infrastructure-testing',
+        title: localised('Cloud and infrastructure testing'),
+        summary: localised(
+          'Testing the cloud and infrastructure work, including performance testing.',
+        ),
+      },
+      {
+        id: 'menb-recording',
+        title: localised('MenB recording'),
+        summary: localised(
+          'Recording MenB vaccinations in WIS, with writeback to GP records through EMIS. Around 10,000 recorded in the first week since release.',
+        ),
+        metric: '10,000',
+        capabilities: {
+          label: 'What the first release covered',
+          items: [
+            'Record MenB vaccinations in WIS.',
+            'View vaccination history where recorded in WIS.',
+            'Report through the data warehouse.',
+            'Strike through a vaccination.',
+            'Set up a vaccine default.',
+            'Writeback to GP records through EMIS, subject to external dependencies.',
+          ],
+        },
+      },
+      {
+        id: 'essential-server-maintenance',
+        title: localised('Essential server maintenance'),
+        summary: localised(
+          'Keeping the servers behind WIS healthy and up to date.',
+        ),
+      },
+      {
+        id: 'not-in-wales-records',
+        title: localised('“Not in Wales” records'),
+        summary: localised(
+          'Requirements defined for recording people who are not registered in Wales.',
+        ),
+      },
+      {
+        id: 'reporting-data-for-rsv-and-flu',
+        title: localised('Reporting data for RSV and flu'),
+        summary: localised(
+          'Added opt-out and location data for RSV and flu to the reporting views, improving the accuracy of uptake data.',
+        ),
+      },
+    ],
   },
 
   // NEEDS JOSHUA'S INPUT.

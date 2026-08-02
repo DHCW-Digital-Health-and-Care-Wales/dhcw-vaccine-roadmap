@@ -21,8 +21,14 @@ export function HorizonColumn({ label, items, headingId }: HorizonColumnProps) {
 
   return (
     <div className="flex flex-col overflow-hidden rounded-card border border-border bg-surface">
-      <h4 id={headingId} className="bg-heading px-4 py-3 font-bold text-white">
-        {tr(label)}
+      <h4
+        id={headingId}
+        className="flex items-center gap-2 bg-heading px-4 py-3 font-bold text-white"
+      >
+        <span>{tr(label)}</span>
+        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full border border-white/30 bg-white/10 px-2 text-xs font-semibold text-white">
+          {items.length}
+        </span>
       </h4>
       <div className="flex flex-1 flex-col gap-3 p-4">
         {items.length > 0 ? (
