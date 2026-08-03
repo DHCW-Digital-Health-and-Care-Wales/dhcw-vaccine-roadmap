@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// Project site is served from https://<org>.github.io/dhcw-vaccine-roadmap/
+// so assets must be referenced from that absolute base. A relative base ('./')
+// 404s when the site is accessed without a trailing slash or on a client-side
+// deep link, because ./assets/... then resolves one directory too high.
 export default defineConfig({
-  // Use a relative base so built asset URLs (./assets/...) resolve relative to
-  // index.html wherever the site is served: the GitHub Pages project path
-  // (…github.io/dhcw-vaccine-roadmap/) or any other host root. An absolute base
-  // hardcodes the /dhcw-vaccine-roadmap/ prefix and 404s when the deploy root
-  // differs, which makes the browser reject the returned 404 HTML as CSS/JS.
-  base: './',
+  base: '/dhcw-vaccine-roadmap/',
   plugins: [react()],
 });
