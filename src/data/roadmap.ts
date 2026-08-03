@@ -84,6 +84,8 @@ export interface RoadmapMeta {
   lastUpdated: string;
   reviewNote: Localised;
   statusLabel: string;
+  /** Short explainer of the public beta and our longer-term goal. */
+  betaNote: Localised;
 }
 
 export interface Roadmap {
@@ -129,7 +131,10 @@ export const roadmap: Roadmap = {
     reviewNote: localised(
       'We update this roadmap as plans develop and we learn from delivery.',
     ),
-    statusLabel: 'Draft for discussion',
+    statusLabel: 'Beta Roadmap',
+    betaNote: localised(
+      'We are trialling a public beta of our roadmap here. Our long-term goal is to make these available through our website.',
+    ),
   },
 
   horizons: [
@@ -174,7 +179,7 @@ export const roadmap: Roadmap = {
       id: 'winter-respiratory-campaign',
       title: localised('Winter respiratory campaign'),
       summary: localised(
-        'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign, and the COVID-19 autumn campaign.',
+        'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign and COVID-19 boosters.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
@@ -320,7 +325,7 @@ export const roadmap: Roadmap = {
       id: 'school-immunisation-recording-and-stock',
       title: localised('School immunisation: recording and stock'),
       summary: localised(
-        'Recording and managing HPV, MenACWY and Teenage Booster (3-in-1) through consent forms, with writeback to CYPrIS and GP systems, and updates to the data warehouse. Writeback to GP systems is being extended to EMIS, covering flu alongside the 3-in-1 booster and MenACWY.',
+        'Recording and managing HPV, MenACWY and Teenage Booster (3-in-1) through consent forms, with writeback to CYPrIS and GP systems, and updates to the data warehouse. Writeback to GP systems is subject to external dependencies.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'next',
