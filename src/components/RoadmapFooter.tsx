@@ -70,9 +70,13 @@ export function RoadmapFooter() {
           </ul>
         </nav>
         <p className="mt-6 text-sm text-white/80">
-          {cy
-            ? 'Digital Health and Care Wales / Iechyd a Gofal Digidol Cymru'
-            : 'Digital Health and Care Wales'}
+          {cy ? (
+            <span lang="cy">
+              Digital Health and Care Wales / Iechyd a Gofal Digidol Cymru
+            </span>
+          ) : (
+            'Digital Health and Care Wales'
+          )}
         </p>
       </div>
     </footer>

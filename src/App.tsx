@@ -19,7 +19,11 @@ export default function App() {
   return (
     <>
       <a href="#main-content" className="skip-link">
-        {cy ? 'Neidio i\u2019r prif gynnwys' : 'Skip to content'}
+        {cy ? (
+          <span lang="cy">Neidio i&rsquo;r prif gynnwys</span>
+        ) : (
+          'Skip to content'
+        )}
       </a>
 
       <span id="top" />

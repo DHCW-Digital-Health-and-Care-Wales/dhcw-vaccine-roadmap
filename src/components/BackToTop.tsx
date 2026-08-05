@@ -22,15 +22,13 @@ export function BackToTop() {
     return null;
   }
 
-  const label = lang === 'cy' ? 'Nôl i’r brig' : 'Back to top';
-
   return (
     <a
       href="#top"
       className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-heading px-4 py-3 text-sm font-medium text-white shadow-lg transition-colors hover:bg-action"
     >
       <ChevronUp className="h-5 w-5" aria-hidden="true" />
-      {label}
+      {lang === 'cy' ? <span lang="cy">Nôl i&rsquo;r brig</span> : 'Back to top'}
     </a>
   );
 }
