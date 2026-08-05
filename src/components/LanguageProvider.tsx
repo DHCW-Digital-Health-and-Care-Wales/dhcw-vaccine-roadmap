@@ -42,11 +42,35 @@ function readInitialLang(): Lang {
 }
 
 /**
+ * Returns true when the initial language came from an explicit source (URL
+ * param or stored preference) rather than the hard-coded default. Used to
+ * decide whether to write the `?lang=` param on first render — we only do so
+ * when the user previously expressed a choice, so clean URLs stay clean.
+ */
+function hasExplicitInitialLang(): boolean {
+  if (typeof window === 'undefined') return false;
+  const fromUrl = new URLSearchParams(window.location.search).get(LANG_PARAM);
+  if (isLang(fromUrl)) return true;
+  try {
+    return isLang(window.localStorage.getItem(LANG_STORAGE_KEY));
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Provides the active language and a translation helper, and keeps the document
  * `lang` attribute, the URL and the stored preference in sync.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(readInitialLang);
+  // Track whether the URL param should be written. We only write it when the
+  // user has actively chosen a language (or when an explicit choice was already
+  // present on load), so first-time visitors don't see ?lang=en appended to
+  // every URL they share.
+  const [writeUrlParam, setWriteUrlParam] = useState<boolean>(
+    hasExplicitInitialLang,
+  );
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -57,13 +81,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       // Ignore storage failures; the choice still applies for this session.
     }
 
-    // Reflect the choice in the URL without adding a history entry.
-    const url = new URL(window.location.href);
-    url.searchParams.set(LANG_PARAM, lang);
-    window.history.replaceState({}, '', url);
-  }, [lang]);
+    // Only reflect the choice in the URL when the user has explicitly set it.
+    if (writeUrlParam) {
+      const url = new URL(window.location.href);
+      url.searchParams.set(LANG_PARAM, lang);
+      window.history.replaceState({}, '', url);
+    }
+  }, [lang, writeUrlParam]);
 
-  const setLang = useCallback((next: Lang) => setLangState(next), []);
+  const setLang = useCallback((next: Lang) => {
+    setWriteUrlParam(true);
+    setLangState(next);
+  }, []);
 
   const value = useMemo(
     () => ({

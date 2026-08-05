@@ -9,8 +9,7 @@ export default {
         'dhcw-blue': '#12A3C9',
         'nhs-wales-blue': '#325083',
         yellow: '#F8CA4D',
-        // UI tokens lifted from the Figma Make export so look and feel match
-        // the design (figma-make-export/App.tsx and theme.css).
+        // UI tokens matching the Figma Make design reference.
         heading: '#1B365D', // section and card headings
         action: '#005AA8', // interactive accents and active states
         // Neutral scale for text, borders and backgrounds.
