@@ -40,7 +40,7 @@ export function VisionStatement({ meta }: { meta: RoadmapMeta }) {
           >
             {lang === 'cy'
               ? 'Disgrifiad o\u2019r gwasanaeth'
-              : 'Service description'}
+              : 'Our value'}
           </h2>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-900">
             {tr(meta.serviceDescription)}
