@@ -95,6 +95,7 @@ export interface Roadmap {
   items: RoadmapItem[];
   recentlyDelivered: DeliveredSectionData;
   otherDelivered: DeliveredSectionData;
+  notDoingNow: DeliveredSectionData;
 }
 
 const TODO_CY = '';
@@ -109,12 +110,12 @@ export const roadmap: Roadmap = {
 
     // Agreed verbatim wording — do not edit.
     vision: localised(
-      'To provide one national digital service, from stock to surveillance. Finding, protecting, remembering, and learning, so that vaccination in Wales stays prudent, equitable, and evidence-led for every person and every dose.',
+      'To provide one national digital service, from stock to surveillance. Finding, protecting, remembering, and learning, so that vaccination in Wales stays prudent, equitable, and evidence-led.',
     ),
 
     // Agreed verbatim wording — do not edit.
     serviceDescription: localised(
-      'We help Wales to deliver efficient, data-driven vaccination services by providing a near real-time, user-centred immunisation service that streamlines data management, enhances citizen access, and supports informed decision-making.',
+      'We help Wales to deliver efficient, data-driven vaccination services by providing a near real-time, user-centred immunisation service that streamlines data management, enhances citizen access, and supports better health outcomes across the nation.',
     ),
 
     // Task 5: removed Oxford comma before "and the direction"; applied natural
@@ -124,7 +125,7 @@ export const roadmap: Roadmap = {
     ),
     // Task 5: applied natural contractions ("don't", "aren't").
     horizonNote: localised(
-      "Now is what we are actively working on. Next is what we expect to pick up soon. Later is the direction we're setting as we learn more with users, families and partners. We don't put dates on roadmap items, and Next and Later aren't firm delivery commitments.",
+      "Now is what we are actively working on. Next is what we expect to pick up soon. Later is the direction we're setting as we learn more with users, families and partners. We don't put dates on this work, and the order isn't a priority list.",
     ),
     owner: 'Vaccine Service, Digital Health and Care Wales',
     lastUpdated: UPDATED_AT,
@@ -179,7 +180,7 @@ export const roadmap: Roadmap = {
       id: 'winter-respiratory-campaign',
       title: localised('Winter respiratory campaign'),
       summary: localised(
-        'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign and COVID-19 boosters.',
+        'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign, and updates for COVID-19.',
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
@@ -599,5 +600,33 @@ export const roadmap: Roadmap = {
       'Content to be confirmed. This section will capture wider delivery this year once reviewed and agreed with the service team.',
     ),
     items: [],
+  },
+
+  // Being explicit about what is out of scope for now.
+  notDoingNow: {
+    id: 'not-doing-now',
+    heading: localised('Not doing right now'),
+    description: localised(
+      'Being clear about what we’re not doing keeps the focus where it matters.',
+    ),
+    placeholder: localised(
+      'Content to be confirmed. This section will explain what is out of scope for now once reviewed and agreed with the service team.',
+    ),
+    items: [
+      {
+        id: 'travel-vaccines',
+        title: localised('Travel vaccines'),
+        summary: localised(
+          'Many of these are given privately. Right now our focus is on a coherent, user-centred service for all NHS-delivered Green Book vaccines.',
+        ),
+      },
+      {
+        id: 'new-development-on-cypris',
+        title: localised('New development on CYPrIS'),
+        summary: localised(
+          'We’ll keep making security and essential policy or regulatory updates to our Child Health product. Our focus is on creating new digital-first experiences for the childhood vaccines through the Welsh Immunisation System.',
+        ),
+      },
+    ],
   },
 };
