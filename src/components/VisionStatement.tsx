@@ -39,7 +39,7 @@ export function VisionStatement({ meta }: { meta: RoadmapMeta }) {
             className="text-2xl font-bold text-heading"
           >
             {lang === 'cy'
-              ? 'Disgrifiad o\u2019r gwasanaeth'
+              ? 'Ein gwerth'
               : 'Our value'}
           </h2>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-900">
