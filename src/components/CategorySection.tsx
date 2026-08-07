@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react';
 import type { Category, Roadmap } from '../data/roadmap';
 import { useLanguage } from '../lib/i18n';
 import { itemsFor } from '../lib/roadmap-helpers';
@@ -5,9 +6,11 @@ import { HorizonColumn } from './HorizonColumn';
 
 /**
  * One outcome category (docs/BUILD_BRIEF.md Sections 4 and 6): its warm
- * headline, formal name and description, with the items split across the three
- * horizons. A coloured accent rule makes categories visually distinct without
- * relying on colour to carry meaning.
+ * headline, formal name and description, followed by the three horizons stacked
+ * as a single top-to-bottom journey (Now, then Next, then Later). A coloured
+ * accent rule makes categories visually distinct, and a decorative connector
+ * between phases signals progression without relying on colour to carry
+ * meaning.
  */
 export function CategorySection({
   category,
@@ -18,6 +21,7 @@ export function CategorySection({
 }) {
   const { tr } = useLanguage();
   const headingId = `category-${category.id}`;
+  const lastIndex = roadmap.horizons.length - 1;
 
   return (
     <section
@@ -37,17 +41,27 @@ export function CategorySection({
         {tr(category.description)}
       </p>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
-        {roadmap.horizons.map((horizon) => (
-          <HorizonColumn
-            key={horizon.id}
-            horizonId={horizon.id}
-            label={horizon.label}
-            items={itemsFor(roadmap, category.id, horizon.id)}
-            headingId={`${headingId}-${horizon.id}`}
-          />
+      <ol className="mt-8 space-y-8">
+        {roadmap.horizons.map((horizon, index) => (
+          <li key={horizon.id}>
+            <HorizonColumn
+              horizonId={horizon.id}
+              label={horizon.label}
+              items={itemsFor(roadmap, category.id, horizon.id)}
+              headingId={`${headingId}-${horizon.id}`}
+              accent={category.accent}
+            />
+            {index < lastIndex ? (
+              <div
+                aria-hidden="true"
+                className="flex flex-col items-center pt-8 text-ink-300"
+              >
+                <ChevronDown className="h-6 w-6" strokeWidth={2.5} />
+              </div>
+            ) : null}
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
   );
 }
