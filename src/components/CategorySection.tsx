@@ -7,10 +7,13 @@ import { HorizonColumn } from './HorizonColumn';
 /**
  * One outcome category (docs/BUILD_BRIEF.md Sections 4 and 6): its warm
  * headline, formal name and description, followed by the three horizons stacked
- * as a single top-to-bottom journey (Now, then Next, then Later). A coloured
- * accent rule makes categories visually distinct, and a decorative connector
- * between phases signals progression without relying on colour to carry
- * meaning.
+ * as a single top-to-bottom journey (Now, then Next, then Later). This stacked
+ * chronological layout is the canonical roadmap presentation pattern; see
+ * docs/ROADMAP_PRESENTATION_STANDARD.md and
+ * docs/adr/0001-roadmap-chronology-presentation-pattern.md. Horizons are never
+ * rendered as side-by-side columns. A coloured accent rule makes categories
+ * visually distinct, and a decorative connector between phases signals
+ * progression without relying on colour to carry meaning.
  */
 export function CategorySection({
   category,

@@ -17,6 +17,11 @@ interface HorizonColumnProps {
  * comfortable reading width while the phases themselves always stack
  * top-to-bottom. The horizon is always labelled in text, never by colour or
  * position alone (docs/BUILD_BRIEF.md Section 7).
+ *
+ * Note: the name "HorizonColumn" is historical. Under the canonical stacked
+ * chronological layout (docs/ROADMAP_PRESENTATION_STANDARD.md and
+ * docs/adr/0001-roadmap-chronology-presentation-pattern.md) this renders a
+ * full-width stacked section, not a side-by-side column.
  */
 export function HorizonColumn({
   label,

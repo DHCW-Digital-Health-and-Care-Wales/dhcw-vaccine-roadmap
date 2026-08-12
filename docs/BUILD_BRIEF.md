@@ -1,3 +1,12 @@
+> **Superseded on layout orientation (2026-08-12).** This brief is the original
+> build brief and is kept for historical context. The roadmap layout is now
+> governed by a canonical standard: roadmaps are presented as **vertically
+> stacked chronological sections (Now → Next → Later)**, not as side-by-side
+> time-horizon columns. Where this brief describes presenting the horizons as
+> parallel columns (Sections 4 and 13), that guidance is **superseded** by
+> [ADR 0001](./adr/0001-roadmap-chronology-presentation-pattern.md) and
+> [`ROADMAP_PRESENTATION_STANDARD.md`](./ROADMAP_PRESENTATION_STANDARD.md).
+
 0. Goal and what success looks like
 
 Build a public, accessible roadmap website for the Primary, Community and Mental Health (PCMH) Directorate at Digital Health and Care Wales (DHCW). It uses a Now, Next, Later format set across six outcome categories. It is hosted on GitHub Pages from the repo DHCW-Digital-Health-and-Care-Wales/PCMH-Roadmap.
@@ -98,11 +107,11 @@ Recommended layout, to reconcile with the Figma design:
 A header with the roadmap title, a short intro, a visible "last updated" date, a "Draft for Discussion" label, and the language toggle.
 A short, plain-English explainer of what Now, Next and Later mean, and a one-line forward-looking note that this shows direction and priorities rather than firm commitments or dates.
 The roadmap body, grouped by category. For each category, show its warm headline and its formal name, its description, and within it the items split across Now, Next and Later.
-Within a category, present the three horizons as columns on wider screens and as stacked, clearly labelled sections on narrow screens.
+Within a category, present the three horizons as vertically stacked, clearly labelled full-width sections in chronological order (Now, then Next, then Later), with a responsive card grid inside each section. Note: this supersedes the original "columns on wider screens" guidance; see ADR 0001 and ROADMAP_PRESENTATION_STANDARD.md. Do not use side-by-side time-horizon columns.
 A footer with feedback route, links to the accessibility statement and privacy note, the licence, and a link back to the GitHub repo.
 
 
-If the Figma design instead organises by horizon first (three columns) with category shown as a tag or filter on each card, follow the Figma design. Either is valid. Keep whichever the design uses consistent and accessible.
+If the Figma design instead organises by horizon first (three columns) with category shown as a tag or filter on each card, note that this is now superseded: the canonical pattern is vertically stacked chronological sections (see ADR 0001 and ROADMAP_PRESENTATION_STANDARD.md). Do not introduce three-column time-horizon layouts without a documented business requirement and a superseding ADR. Keep whichever the design uses consistent and accessible.
 
 Keep it close to a single page. A simple in-page structure avoids client-side routing problems on GitHub Pages. If you add a separate page (for example the accessibility statement), handle the GitHub Pages routing gotcha in Section 10.
 
@@ -346,7 +355,7 @@ Work in phases and pause after each for me to review.
 
 Scaffold. Vite + React + TypeScript + Tailwind. ESLint and Prettier. Folder structure. Ingest the Figma design per Section 3 and set up brand tokens.
 Content model. Build src/data/roadmap.ts, seed meta, the three horizons, the six categories verbatim, and the placeholder items.
-Layout and components. Header, horizon explainer and forward-looking note, category sections, horizon columns, roadmap cards, footer. Match the Figma design.
+Layout and components. Header, horizon explainer and forward-looking note, category sections, stacked full-width horizon sections (Now, Next, Later), roadmap cards, footer. Match the Figma design, applying the stacked chronological layout standard (ADR 0001).
 Bilingual and language toggle. Language-keyed rendering, toggle, English fallback, lang attribute switching.
 Accessibility pass. Landmarks, headings, keyboard, focus, contrast, reduced motion, automated check, fixes.
 Open-working files. README, accessibility statement, privacy note, licence, feedback issue template.
@@ -360,4 +369,4 @@ Proceed with the defaults if I am not available, but flag these:
 
 Licence. Default: MIT for code, Open Government Licence v3 for content. Confirm or change.
 Welsh as default language. Default for now: English, with Welsh to follow and a one-line setting to flip to Welsh-first later. Confirm.
-Layout orientation. Whether the roadmap groups by category first (with Now, Next, Later inside each) or by horizon first (three columns with category as a tag or filter). Default: follow the Figma design; if the Figma design is ambiguous, group by category first. Confirm which the Figma design uses.
+Layout orientation. Decided: the roadmap is presented as vertically stacked chronological sections (Now, Next, Later), not side-by-side horizon columns. See ADR 0001 (docs/adr/) and ROADMAP_PRESENTATION_STANDARD.md. Grouping by category first (with Now, Next, Later stacked inside each) remains the default structure. A three-column horizon layout requires a documented business requirement and a superseding ADR.
