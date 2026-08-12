@@ -25,6 +25,13 @@ The roadmap is organised into three horizons:
 - **Next** is what we expect to pick up soon.
 - **Later** is the direction we are setting.
 
+It is presented as a vertically stacked chronological journey — **Now**, then
+**Next**, then **Later** — with each horizon shown as a full-width section and a
+responsive grid of cards inside it, rather than as side-by-side columns. This is
+the canonical roadmap presentation pattern for the project; see the
+[Roadmap Presentation Standard](./docs/ROADMAP_PRESENTATION_STANDARD.md) and
+[ADR 0001](./docs/adr/0001-roadmap-chronology-presentation-pattern.md).
+
 The further out the work, the more it may change. We do not put dates on the
 roadmap, and Next and Later are not commitments to deliver by a particular time.
 
@@ -91,6 +98,12 @@ The look and feel is based on the Figma Make export in
 [`figma-make-export/`](./figma-make-export/), reconciled to this project's
 structure and data model. That folder is a design reference only and is not part
 of the application build.
+
+## Contributing
+
+Development conventions, including the canonical roadmap layout standard, are in
+[`CONTRIBUTING.md`](./CONTRIBUTING.md). Significant design decisions are recorded
+as [Architecture Decision Records](./docs/adr/).
 
 ## Licence
 
