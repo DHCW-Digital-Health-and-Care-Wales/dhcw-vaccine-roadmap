@@ -5,7 +5,7 @@ A public, accessible roadmap for the Vaccine Service at
 we are working on now, what we expect to do next, and the direction we are
 setting for later.
 
-**Live site:** https://dhcw-digital-health-and-care-wales.github.io/dhcw-vaccine-roadmap/
+**Live site:** https://dhcw-digital-health-and-care-wales.github.io/dhcw-vaccine-roadmap/?lang=en
 
 > **Draft for discussion.** This roadmap shows direction and priorities, not
 > firm commitments. It carries no dates. Now is the firmest; Later is the most
