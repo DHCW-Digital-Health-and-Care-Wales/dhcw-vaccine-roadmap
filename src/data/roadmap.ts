@@ -640,13 +640,6 @@ export const roadmap: Roadmap = {
           'We’ll keep making security and essential policy or regulatory updates to our Child Health product. Our focus is on creating new digital-first experiences for the childhood vaccines through the Welsh Immunisation System.',
         ),
       },
-      {
-        id: 'native-mobile-app',
-        title: localised('A standalone mobile app'),
-        summary: localised(
-          'We are not building a separate mobile app right now. Our focus is a responsive, accessible web service that works on any device without a download.',
-        ),
-      },
     ],
   },
 };
