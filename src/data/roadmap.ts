@@ -99,7 +99,7 @@ export interface Roadmap {
 }
 
 const TODO_CY = '';
-const UPDATED_AT = '2026-08-02';
+const UPDATED_AT = '2026-08-28';
 const CATEGORY_ID = 'vaccine-service';
 
 const localised = (en: string): Localised => ({ cy: TODO_CY, en });
