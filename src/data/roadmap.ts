@@ -218,31 +218,6 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
-      id: 'registrant-consent-recording',
-      title: localised('Registrant Consent Recording'),
-      summary: localised(
-        'Recording registrant consent at the point of vaccination, keeping WIS up to date with regulatory change.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'in-progress',
-      outcome:
-        'The service stays in line with current requirements for recording consent.',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'clearer-vaccination-warnings',
-      title: localised('Clearer vaccination warnings'),
-      summary: localised(
-        "Clearer warnings when a vaccination looks like a duplicate, or when the person isn't in a priority group.",
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'in-progress',
-      outcome: 'Staff can catch possible recording errors before they happen.',
-      updated: UPDATED_AT,
-    },
-    {
       id: 'new-stock-management-designs',
       title: localised('New stock management designs'),
       summary: localised(
@@ -584,6 +559,20 @@ export const roadmap: Roadmap = {
         title: localised('Letter updates'),
         summary: localised(
           "Updating the existing WIS letter templates for this year's autumn campaigns.",
+        ),
+      },
+      {
+        id: 'registrant-consent-recording',
+        title: localised('Registrant Consent Recording'),
+        summary: localised(
+          'Recording registrant consent at the point of vaccination, keeping WIS up to date with regulatory change.',
+        ),
+      },
+      {
+        id: 'clearer-vaccination-warnings',
+        title: localised('Clearer vaccination warnings'),
+        summary: localised(
+          "Clearer warnings when a vaccination looks like a duplicate, or when the person isn't in a priority group.",
         ),
       },
     ],
