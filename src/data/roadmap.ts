@@ -177,19 +177,6 @@ export const roadmap: Roadmap = {
 
   items: [
     {
-      id: 'winter-respiratory-campaign',
-      title: localised('Winter respiratory campaign'),
-      summary: localised(
-        'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign, and updates for COVID-19.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'in-progress',
-      outcome:
-        'WIS is ready to record flu, COVID-19 and RSV vaccinations across every health board through the winter season.',
-      updated: UPDATED_AT,
-    },
-    {
       id: 'system-generated-appointments-sga',
       title: localised('System Generated Appointments (SGA)'),
       summary: localised(
@@ -596,6 +583,13 @@ export const roadmap: Roadmap = {
         title: localised('Reporting data for RSV and flu'),
         summary: localised(
           'Added opt-out and location data for RSV and flu to the reporting views, improving the accuracy of uptake data.',
+        ),
+      },
+      {
+        id: 'winter-respiratory-campaign',
+        title: localised('Winter respiratory campaign'),
+        summary: localised(
+          'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign, and updates for COVID-19.',
         ),
       },
     ],
