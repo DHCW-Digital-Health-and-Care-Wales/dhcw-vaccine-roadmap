@@ -190,19 +190,6 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
-      id: 'letter-updates',
-      title: localised('Letter updates'),
-      summary: localised(
-        "Updating the existing WIS letter templates for this year's autumn campaigns.",
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'in-progress',
-      outcome:
-        'Existing letters are accurate and up to date for the autumn campaigns.',
-      updated: UPDATED_AT,
-    },
-    {
       id: 'school-immunisation-service',
       title: localised('School immunisation service'),
       summary: localised(
@@ -590,6 +577,13 @@ export const roadmap: Roadmap = {
         title: localised('Winter respiratory campaign'),
         summary: localised(
           'Getting WIS ready for the autumn and winter respiratory campaigns. This year eligibility is widening, with a new RSV group for people aged 65 to 74 at risk, changes for the autumn flu campaign, and updates for COVID-19.',
+        ),
+      },
+      {
+        id: 'letter-updates',
+        title: localised('Letter updates'),
+        summary: localised(
+          "Updating the existing WIS letter templates for this year's autumn campaigns.",
         ),
       },
     ],
