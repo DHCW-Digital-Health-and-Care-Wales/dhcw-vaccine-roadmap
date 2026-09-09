@@ -252,7 +252,7 @@ export const roadmap: Roadmap = {
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'exploring',
-      phase: 'Discovery',
+      phase: 'Awaiting Deployment',
       phaseKind: 'discovery',
       outcome:
         'A clear view of whether more frequent updates are feasible, and what it would take to deliver them.',
