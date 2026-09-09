@@ -8,7 +8,11 @@
  */
 
 export type Horizon = 'now' | 'next' | 'later';
-export type ItemStatus = 'exploring' | 'in-progress' | 'shipped';
+export type ItemStatus =
+  | 'exploring'
+  | 'in-progress'
+  | 'shipped'
+  | 'awaiting-deployment';
 
 /** Every piece of display text is language-keyed. */
 export interface Localised {
@@ -251,9 +255,7 @@ export const roadmap: Roadmap = {
       ),
       categoryId: CATEGORY_ID,
       horizon: 'now',
-      status: 'exploring',
-      phase: 'Awaiting Deployment',
-      phaseKind: 'discovery',
+      status: 'awaiting-deployment',
       outcome:
         'A clear view of whether more frequent updates are feasible, and what it would take to deliver them.',
       updated: UPDATED_AT,

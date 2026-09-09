@@ -28,6 +28,7 @@ export const STATUS_LABELS: Record<ItemStatus, Localised> = {
   exploring: { cy: '', en: 'Exploring' },
   'in-progress': { cy: '', en: 'In progress' },
   shipped: { cy: '', en: 'Shipped' },
+  'awaiting-deployment': { cy: '', en: 'Awaiting Deployment' },
 };
 
 /**
