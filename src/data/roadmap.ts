@@ -249,6 +249,19 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'wis-operational-improvements',
+      title: localised('WIS Operational Improvements'),
+      summary: localised(
+        'WDS batch trace and improvement to death notifications',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      outcome:
+        'Enhanced patient demographic data quality, supporting safer and more effective immunisation delivery.',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'storage-area-network-san',
       title: localised('Storage Area Network (SAN)'),
       summary: localised(
