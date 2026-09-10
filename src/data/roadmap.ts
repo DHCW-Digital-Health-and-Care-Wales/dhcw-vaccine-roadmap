@@ -343,6 +343,17 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'cloud-and-infrastructure-testing',
+      title: localised('Cloud and infrastructure testing'),
+      summary: localised(
+        'Testing the cloud and infrastructure work, including performance testing.',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'next',
+      status: 'exploring',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'continuous-improvement',
       title: localised('Continuous improvement'),
       summary: localised(
@@ -497,20 +508,6 @@ export const roadmap: Roadmap = {
     ),
     items: [
       {
-        id: 'cloud-work-code-complete',
-        title: localised('Cloud work code complete'),
-        summary: localised(
-          'Development is finished. More follows once the cloud infrastructure becomes available.',
-        ),
-      },
-      {
-        id: 'cloud-and-infrastructure-testing',
-        title: localised('Cloud and infrastructure testing'),
-        summary: localised(
-          'Testing the cloud and infrastructure work, including performance testing.',
-        ),
-      },
-      {
         id: 'menb-recording',
         title: localised('MenB recording'),
         summary: localised(
@@ -600,7 +597,15 @@ export const roadmap: Roadmap = {
     placeholder: localised(
       'Content to be confirmed. This section will capture wider delivery this year once reviewed and agreed with the service team.',
     ),
-    items: [],
+    items: [
+      {
+        id: 'cloud-work-code-complete',
+        title: localised('Cloud work code complete'),
+        summary: localised(
+          'Development is finished. More follows once the cloud infrastructure becomes available.',
+        ),
+      },
+    ],
   },
 
   // Being explicit about what is out of scope for now.
