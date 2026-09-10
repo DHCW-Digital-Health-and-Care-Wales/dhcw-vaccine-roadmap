@@ -444,8 +444,8 @@ export const roadmap: Roadmap = {
         'Essential maintenance and security upgrades to CYPrIS, the child health platform that works alongside WIS.',
       ),
       categoryId: CATEGORY_ID,
-      horizon: 'later',
-      status: 'exploring',
+      horizon: 'now',
+      status: 'in-progress',
       services: ['CYPrIS'],
       outcome:
         'CYPrIS stays secure and reliable while we focus new development on WIS.',
