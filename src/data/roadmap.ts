@@ -377,6 +377,7 @@ export const roadmap: Roadmap = {
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      phase: 'CLOUD',
       updated: UPDATED_AT,
     },
     {
