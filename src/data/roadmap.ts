@@ -182,19 +182,6 @@ export const roadmap: Roadmap = {
 
   items: [
     {
-      id: 'system-generated-appointments-sga',
-      title: localised('System Generated Appointments (SGA)'),
-      summary: localised(
-        'Piloting System Generated Appointments and appointment mapping, with training and support.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'in-progress',
-      outcome:
-        'NHS staff can schedule appointments with more automation and less reliance on DHCW support teams.',
-      updated: UPDATED_AT,
-    },
-    {
       id: 'school-immunisation-service-beta',
       title: localised('School immunisation service'),
       summary: localised(
@@ -582,6 +569,13 @@ export const roadmap: Roadmap = {
           'Early build and testing of the school immunisation service.',
         ),
         phase: 'Alpha',
+      },
+      {
+        id: 'system-generated-appointments-sga',
+        title: localised('System Generated Appointments (SGA)'),
+        summary: localised(
+          'Piloting System Generated Appointments and appointment mapping, with training and support.',
+        ),
       },
     ],
   },
