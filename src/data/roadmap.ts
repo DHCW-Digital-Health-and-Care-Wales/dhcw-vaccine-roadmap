@@ -262,6 +262,20 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'environment-provisioning',
+      title: localised('Environment Provisioning'),
+      summary: localised(
+        'Creation of the Cloud WIS Dev/Test environment including population of data in Postgres Database',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      phase: 'CLOUD',
+      outcome:
+        'Delivers a fully populated testing environment to support the Cloud and database migration activity.',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'storage-area-network-san',
       title: localised('Storage Area Network (SAN)'),
       summary: localised(
