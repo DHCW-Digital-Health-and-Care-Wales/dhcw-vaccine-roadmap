@@ -533,6 +533,16 @@ export const roadmap: Roadmap = {
         'A clear understanding of how WIS could support pre-school vaccination.',
       updated: UPDATED_AT,
     },
+    {
+      id: 'offline-access-for-wis',
+      title: localised('Offline access for WIS'),
+      summary: localised('Exploring PWA standards for offline access in poor signal.'),
+      categoryId: CATEGORY_ID,
+      horizon: 'later',
+      status: 'exploring',
+      phase: 'DISCOVERY',
+      updated: UPDATED_AT,
+    },
   ],
 
   recentlyDelivered: {
