@@ -58,6 +58,13 @@ export function DeliveredSection({
                 key={item.id}
                 className="rounded-card border border-border bg-surface p-4 shadow-sm"
               >
+                {item.phase ? (
+                  <p className="mb-2">
+                    <span className="inline-flex items-center rounded-full border border-border-strong bg-surface-subtle px-2.5 py-0.5 text-xs font-medium text-ink-700">
+                      {item.phase}
+                    </span>
+                  </p>
+                ) : null}
                 <h3 className="font-bold text-heading">{tr(item.title)}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-900">
                   {renderSummaryWithMetric(tr(item.summary), item.metric)}
