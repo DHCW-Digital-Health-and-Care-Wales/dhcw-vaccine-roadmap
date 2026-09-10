@@ -276,6 +276,18 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'wast-enablement',
+      title: localised('WAST Enablement'),
+      summary: localised(
+        'Creating new sector to enable Welsh Ambulance vaccination activity to be recorded in WIS',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      outcome: 'WAST Vaccination activity available in WIS',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'storage-area-network-san',
       title: localised('Storage Area Network (SAN)'),
       summary: localised(
