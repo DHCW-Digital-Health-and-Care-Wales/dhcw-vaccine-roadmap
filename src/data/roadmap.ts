@@ -299,6 +299,22 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'nhs-wales-app-vaccine-features',
+      title: localised('NHS Wales App vaccine features'),
+      summary: localised(
+        'Possible discovery into vaccine features in the NHS Wales App, subject to prioritisation.',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'exploring',
+      phase: 'Discovery',
+      phaseKind: 'discovery',
+      services: ['NHS Wales App'],
+      outcome:
+        "People can see their vaccination record and what they're due in the NHS Wales App.",
+      updated: UPDATED_AT,
+    },
+    {
       id: 'storage-area-network-san',
       title: localised('Storage Area Network (SAN)'),
       summary: localised(
@@ -515,22 +531,6 @@ export const roadmap: Roadmap = {
       phaseKind: 'discovery',
       outcome:
         'A clear understanding of how WIS could support pre-school vaccination.',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'nhs-wales-app-vaccine-features',
-      title: localised('NHS Wales App vaccine features'),
-      summary: localised(
-        'Possible discovery into vaccine features in the NHS Wales App, subject to prioritisation.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'later',
-      status: 'exploring',
-      phase: 'Discovery',
-      phaseKind: 'discovery',
-      services: ['NHS Wales App'],
-      outcome:
-        "People can see their vaccination record and what they're due in the NHS Wales App.",
       updated: UPDATED_AT,
     },
   ],
