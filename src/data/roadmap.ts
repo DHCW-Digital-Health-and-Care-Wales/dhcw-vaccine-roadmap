@@ -194,7 +194,7 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
-      id: 'school-immunisation-service',
+      id: 'school-immunisation-service-beta',
       title: localised('School immunisation service'),
       summary: localised(
         'Early build and testing of the school immunisation service.',
@@ -202,7 +202,7 @@ export const roadmap: Roadmap = {
       categoryId: CATEGORY_ID,
       horizon: 'now',
       status: 'in-progress',
-      phase: 'Alpha',
+      phase: 'Beta',
       outcome:
         'Tested prototypes for running school vaccination sessions digitally, ready to build on.',
       updated: UPDATED_AT,
@@ -575,6 +575,13 @@ export const roadmap: Roadmap = {
         title: localised('Clearer vaccination warnings'),
         summary: localised(
           "Clearer warnings when a vaccination looks like a duplicate, or when the person isn't in a priority group.",
+        ),
+      },
+      {
+        id: 'school-immunisation-service',
+        title: localised('School immunisation service'),
+        summary: localised(
+          'Early build and testing of the school immunisation service.',
         ),
       },
     ],
