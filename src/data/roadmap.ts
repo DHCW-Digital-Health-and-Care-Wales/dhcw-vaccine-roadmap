@@ -543,6 +543,18 @@ export const roadmap: Roadmap = {
       phase: 'DISCOVERY',
       updated: UPDATED_AT,
     },
+    {
+      id: 'new-top-navigation',
+      title: localised('New top navigation'),
+      summary: localised(
+        'Moving to a top navigation for easier use and more space.',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'later',
+      status: 'exploring',
+      phase: 'DESIGN UPDATE',
+      updated: UPDATED_AT,
+    },
   ],
 
   recentlyDelivered: {
