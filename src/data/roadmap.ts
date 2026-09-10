@@ -288,6 +288,17 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'school-immunisation-service-consultation-updates',
+      title: localised('School immunisation service'),
+      summary: localised(
+        'Pregnancy and Gillick updates to the WIS consultation form',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'storage-area-network-san',
       title: localised('Storage Area Network (SAN)'),
       summary: localised(
