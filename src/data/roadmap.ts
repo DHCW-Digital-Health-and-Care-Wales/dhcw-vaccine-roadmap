@@ -52,6 +52,7 @@ export interface DeliveredItem {
   id: string;
   title: Localised;
   summary: Localised;
+  phase?: string;
   metric?: string;
   capabilities?: { label: string; items: string[] };
 }
@@ -583,6 +584,7 @@ export const roadmap: Roadmap = {
         summary: localised(
           'Early build and testing of the school immunisation service.',
         ),
+        phase: 'Alpha',
       },
     ],
   },
