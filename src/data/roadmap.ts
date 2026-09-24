@@ -353,6 +353,7 @@ export const roadmap: Roadmap = {
       categoryId: CATEGORY_ID,
       horizon: 'next',
       status: 'exploring',
+      phase: 'IMPROVED COMMUNICATIONS',
       outcome:
         'Improved written communication, and cost savings from reducing letter length.',
       updated: UPDATED_AT,
