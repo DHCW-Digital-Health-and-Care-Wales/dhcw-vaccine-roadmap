@@ -275,6 +275,34 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'nhs-wales-app-vaccine-features',
+      title: localised('NHS Wales App vaccine features'),
+      summary: localised(
+        'Gathering requirements for the ability to view appointments within the NHS Wales App',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      phase: 'REQUIREMENTS GATHERING',
+      outcome:
+        'Vaccine appointments available to be viewed in the NHS Wales App improving access to vaccination information.',
+      updated: UPDATED_AT,
+    },
+    {
+      id: 'planned-patient-sessions',
+      title: localised('Planned Patient Sessions'),
+      summary: localised(
+        'Provide users with the ability to maintain planned patient sessions (following Winter campaign release)',
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'now',
+      status: 'in-progress',
+      phase: 'CONTINUOS IMPROVEMENT',
+      outcome:
+        'The ability to manage Planned Patient Sessions will be provided to the users of WIS removing the need to request this from the Operational team',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'storage-area-network-san',
       title: localised('Storage Area Network (SAN)'),
       summary: localised(
