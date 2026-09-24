@@ -566,7 +566,28 @@ export const roadmap: Roadmap = {
     placeholder: localised(
       'Content to be confirmed. This section will list recently delivered work once reviewed and agreed with the service team.',
     ),
+    items: [],
+  },
+
+  // NEEDS JOSHUA'S INPUT.
+  // Same evidence rule: no items without a real delivery source.
+  otherDelivered: {
+    id: 'other-delivered',
+    heading: localised('Other work we have delivered this year'),
+    description: localised(
+      'A broader view of the delivery this year that sits outside the main roadmap horizons.',
+    ),
+    placeholder: localised(
+      'Content to be confirmed. This section will capture wider delivery this year once reviewed and agreed with the service team.',
+    ),
     items: [
+      {
+        id: 'cloud-work-code-complete',
+        title: localised('Cloud work code complete'),
+        summary: localised(
+          'Development is finished. More follows once the cloud infrastructure becomes available.',
+        ),
+      },
       {
         id: 'menb-recording',
         title: localised('MenB recording'),
@@ -648,28 +669,6 @@ export const roadmap: Roadmap = {
         title: localised('System Generated Appointments (SGA)'),
         summary: localised(
           'Piloting System Generated Appointments and appointment mapping, with training and support.',
-        ),
-      },
-    ],
-  },
-
-  // NEEDS JOSHUA'S INPUT.
-  // Same evidence rule: no items without a real delivery source.
-  otherDelivered: {
-    id: 'other-delivered',
-    heading: localised('Other work we have delivered this year'),
-    description: localised(
-      'A broader view of the delivery this year that sits outside the main roadmap horizons.',
-    ),
-    placeholder: localised(
-      'Content to be confirmed. This section will capture wider delivery this year once reviewed and agreed with the service team.',
-    ),
-    items: [
-      {
-        id: 'cloud-work-code-complete',
-        title: localised('Cloud work code complete'),
-        summary: localised(
-          'Development is finished. More follows once the cloud infrastructure becomes available.',
         ),
       },
     ],
