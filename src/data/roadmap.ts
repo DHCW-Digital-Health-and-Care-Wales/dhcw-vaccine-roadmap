@@ -309,7 +309,7 @@ export const roadmap: Roadmap = {
         'Essential infrastructure work on the Storage Area Network.',
       ),
       categoryId: CATEGORY_ID,
-      horizon: 'next',
+      horizon: 'later',
       status: 'exploring',
       outcome:
         'Essential maintenance keeps the storage behind WIS running reliably.',
