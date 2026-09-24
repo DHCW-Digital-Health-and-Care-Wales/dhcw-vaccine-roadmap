@@ -236,19 +236,6 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
-      id: 'more-frequent-gp-write-back',
-      title: localised('More frequent GP write-back'),
-      summary: localised(
-        'Investigating whether we can send vaccination updates back to GP records more often, working with IUVO and EMIS.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'awaiting-deployment',
-      outcome:
-        'A clear view of whether more frequent updates are feasible, and what it would take to deliver them.',
-      updated: UPDATED_AT,
-    },
-    {
       id: 'wis-operational-improvements',
       title: localised('WIS Operational Improvements'),
       summary: localised(
@@ -285,33 +272,6 @@ export const roadmap: Roadmap = {
       horizon: 'now',
       status: 'in-progress',
       outcome: 'WAST Vaccination activity available in WIS',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'school-immunisation-service-consultation-updates',
-      title: localised('School immunisation service'),
-      summary: localised(
-        'Pregnancy and Gillick updates to the WIS consultation form',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'in-progress',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'nhs-wales-app-vaccine-features',
-      title: localised('NHS Wales App vaccine features'),
-      summary: localised(
-        'Possible discovery into vaccine features in the NHS Wales App, subject to prioritisation.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'now',
-      status: 'exploring',
-      phase: 'Discovery',
-      phaseKind: 'discovery',
-      services: ['NHS Wales App'],
-      outcome:
-        "People can see their vaccination record and what they're due in the NHS Wales App.",
       updated: UPDATED_AT,
     },
     {
@@ -566,7 +526,30 @@ export const roadmap: Roadmap = {
     placeholder: localised(
       'Content to be confirmed. This section will list recently delivered work once reviewed and agreed with the service team.',
     ),
-    items: [],
+    items: [
+      {
+        id: 'more-frequent-gp-write-back',
+        title: localised('More frequent GP write-back'),
+        summary: localised(
+          'Investigating whether we can send vaccination updates back to GP records more often, working with IUVO and EMIS.',
+        ),
+      },
+      {
+        id: 'school-immunisation-service-consultation-updates',
+        title: localised('School immunisation service'),
+        summary: localised(
+          'Pregnancy and Gillick updates to the WIS consultation form',
+        ),
+      },
+      {
+        id: 'nhs-wales-app-vaccine-features',
+        title: localised('NHS Wales App vaccine features'),
+        summary: localised(
+          'Possible discovery into vaccine features in the NHS Wales App, subject to prioritisation.',
+        ),
+        phase: 'Discovery',
+      },
+    ],
   },
 
   // NEEDS JOSHUA'S INPUT.
