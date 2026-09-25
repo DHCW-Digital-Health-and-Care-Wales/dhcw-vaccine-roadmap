@@ -384,6 +384,19 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
+      id: 'measuring-usability-umux-lite',
+      title: localised('Measuring usability (UMUX-Lite)'),
+      summary: localised(
+        "Adding a short two-question survey to the service, asking whether it does what people need and whether it's easy to use. It takes under a minute to answer and gives us a usability score we can track over time and compare with other services.",
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'next',
+      status: 'exploring',
+      outcome:
+        'We can see whether changes are making the service easier to use, and hear from a wider group of users than we reach through research sessions.',
+      updated: UPDATED_AT,
+    },
+    {
       id: 'continuous-improvement',
       title: localised('Continuous improvement'),
       summary: localised(
@@ -394,19 +407,6 @@ export const roadmap: Roadmap = {
       status: 'exploring',
       outcome:
         'WIS keeps improving based on what we learn from the winter campaign.',
-      updated: UPDATED_AT,
-    },
-    {
-      id: 'measuring-usability-umux-lite',
-      title: localised('Measuring usability (UMUX-Lite)'),
-      summary: localised(
-        "Adding a short two-question survey to the service, asking whether it does what people need and whether it's easy to use. It takes under a minute to answer and gives us a usability score we can track over time and compare with other services.",
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'later',
-      status: 'exploring',
-      outcome:
-        'We can see whether changes are making the service easier to use, and hear from a wider group of users than we reach through research sessions.',
       updated: UPDATED_AT,
     },
     {
