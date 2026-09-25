@@ -359,19 +359,6 @@ export const roadmap: Roadmap = {
       updated: UPDATED_AT,
     },
     {
-      id: 'improved-error-messages',
-      title: localised('Improved error messages'),
-      summary: localised(
-        'Further improvements to the error messages people see in WIS, so problems are easier to understand and put right.',
-      ),
-      categoryId: CATEGORY_ID,
-      horizon: 'next',
-      status: 'exploring',
-      outcome:
-        'Users spend less time working out what went wrong and know how to get help faster.',
-      updated: UPDATED_AT,
-    },
-    {
       id: 'managing-not-in-wales-records',
       title: localised('Managing “not in Wales” records'),
       summary: localised(
