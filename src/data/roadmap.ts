@@ -104,7 +104,7 @@ export interface Roadmap {
 }
 
 const TODO_CY = '';
-const UPDATED_AT = '2026-09-25';
+const UPDATED_AT = '2026-10-09';
 const CATEGORY_ID = 'vaccine-service';
 
 const localised = (en: string): Localised => ({ cy: TODO_CY, en });
@@ -390,10 +390,23 @@ export const roadmap: Roadmap = {
         "Adding a short two-question survey to the service, asking whether it does what people need and whether it's easy to use. It takes under a minute to answer and gives us a usability score we can track over time and compare with other services.",
       ),
       categoryId: CATEGORY_ID,
-      horizon: 'next',
+      horizon: 'now',
       status: 'exploring',
       outcome:
         'We can see whether changes are making the service easier to use, and hear from a wider group of users than we reach through research sessions.',
+      updated: UPDATED_AT,
+    },
+    {
+      id: 'personalised-vaccination-communications',
+      title: localised('More personalised vaccination communications'),
+      summary: localised(
+        "We want to explore precision nudging, using behavioural science to tailor vaccination communications to people's circumstances and the barriers that may stop them taking up vaccination.",
+      ),
+      categoryId: CATEGORY_ID,
+      horizon: 'later',
+      status: 'exploring',
+      outcome:
+        'We will test whether more personalised messages, timing and ways of communicating can help more people take up vaccinations they are eligible for.\n\nWhy it matters\nClearer, more relevant communication may help people make informed decisions and take the next step towards vaccination..',
       updated: UPDATED_AT,
     },
     {
